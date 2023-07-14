@@ -31,9 +31,9 @@ namespace Appraisal_System.Model
         {
             AppraisalBases appraisalBases = new AppraisalBases();
             appraisalBases.Id = (int)dr["Id"];
-            appraisalBases.BaseType = dr["Id"].ToString();
-            appraisalBases.AppraisalBase = (int)dr["Id"];
-            appraisalBases.IsDel = (bool)dr["Id"];
+            appraisalBases.BaseType = dr["BaseType"].ToString();
+            appraisalBases.AppraisalBase = (int)dr["AppraisalBase"];
+            appraisalBases.IsDel = (bool)dr["IsDel"];
             return appraisalBases;
         }
     }

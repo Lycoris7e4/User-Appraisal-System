@@ -49,8 +49,8 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.treeView1);
-            this.splitContainer1.Size = new System.Drawing.Size(1395, 747);
-            this.splitContainer1.SplitterDistance = 347;
+            this.splitContainer1.Size = new System.Drawing.Size(1310, 718);
+            this.splitContainer1.SplitterDistance = 323;
             this.splitContainer1.TabIndex = 0;
             // 
             // treeView1
@@ -76,18 +76,16 @@
             treeNode3,
             treeNode4});
             this.treeView1.ShowLines = false;
-            this.treeView1.Size = new System.Drawing.Size(347, 747);
+            this.treeView1.Size = new System.Drawing.Size(323, 718);
             this.treeView1.TabIndex = 0;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1395, 747);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1310, 718);
             this.Controls.Add(this.splitContainer1);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(1417, 803);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);

@@ -53,7 +53,7 @@
             this.gbxFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxFilter.Location = new System.Drawing.Point(12, 12);
             this.gbxFilter.Name = "gbxFilter";
-            this.gbxFilter.Size = new System.Drawing.Size(1179, 143);
+            this.gbxFilter.Size = new System.Drawing.Size(1415, 143);
             this.gbxFilter.TabIndex = 0;
             this.gbxFilter.TabStop = false;
             this.gbxFilter.Text = "Filter";
@@ -61,7 +61,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(1039, 59);
+            this.btnSearch.Location = new System.Drawing.Point(1275, 59);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(117, 39);
             this.btnSearch.TabIndex = 5;
@@ -71,7 +71,7 @@
             // cbxSuspended
             // 
             this.cbxSuspended.AutoSize = true;
-            this.cbxSuspended.Location = new System.Drawing.Point(655, 63);
+            this.cbxSuspended.Location = new System.Drawing.Point(1023, 63);
             this.cbxSuspended.Name = "cbxSuspended";
             this.cbxSuspended.Size = new System.Drawing.Size(159, 33);
             this.cbxSuspended.TabIndex = 4;
@@ -83,7 +83,7 @@
             this.cbxIdentity.FormattingEnabled = true;
             this.cbxIdentity.Location = new System.Drawing.Point(443, 61);
             this.cbxIdentity.Name = "cbxIdentity";
-            this.cbxIdentity.Size = new System.Drawing.Size(178, 37);
+            this.cbxIdentity.Size = new System.Drawing.Size(553, 37);
             this.cbxIdentity.TabIndex = 3;
             // 
             // IbIdentity
@@ -121,14 +121,14 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1179, 531);
+            this.dataGridView1.Size = new System.Drawing.Size(1415, 775);
             this.dataGridView1.TabIndex = 0;
             // 
             // UserManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 704);
+            this.ClientSize = new System.Drawing.Size(1439, 948);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.gbxFilter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

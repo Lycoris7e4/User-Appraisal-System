@@ -18,7 +18,7 @@ namespace Appraisal_System.Utility
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
-                SqlDataAdapter sda = new SqlDataAdapter();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
                 return ds.Tables[0];
