@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbxFilter = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cbxSuspended = new System.Windows.Forms.CheckBox();
@@ -35,9 +36,15 @@
             this.IbIdentity = new System.Windows.Forms.Label();
             this.tbxUserName = new System.Windows.Forms.TextBox();
             this.lbUserName = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvUserAppraisal = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BaseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppraisalBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsDel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxFilter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppraisal)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxFilter
@@ -67,6 +74,7 @@
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cbxSuspended
             // 
@@ -111,25 +119,91 @@
             this.lbUserName.TabIndex = 0;
             this.lbUserName.Text = "UserName";
             // 
-            // dataGridView1
+            // dgvUserAppraisal
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 161);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1415, 775);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvUserAppraisal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserAppraisal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.UserName,
+            this.Sex,
+            this.BaseType,
+            this.AppraisalBase,
+            this.IsDel});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserAppraisal.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUserAppraisal.Location = new System.Drawing.Point(21, 161);
+            this.dgvUserAppraisal.Name = "dgvUserAppraisal";
+            this.dgvUserAppraisal.RowHeadersWidth = 62;
+            this.dgvUserAppraisal.RowTemplate.Height = 28;
+            this.dgvUserAppraisal.Size = new System.Drawing.Size(1415, 775);
+            this.dgvUserAppraisal.TabIndex = 0;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 8;
+            this.Id.Name = "Id";
+            this.Id.Width = 59;
+            // 
+            // UserName
+            // 
+            this.UserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.UserName.DataPropertyName = "UserName";
+            this.UserName.HeaderText = "User Name";
+            this.UserName.MinimumWidth = 8;
+            this.UserName.Name = "UserName";
+            this.UserName.Width = 125;
+            // 
+            // Sex
+            // 
+            this.Sex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sex.DataPropertyName = "Sex";
+            this.Sex.HeaderText = "Gender";
+            this.Sex.MinimumWidth = 8;
+            this.Sex.Name = "Sex";
+            this.Sex.Width = 99;
+            // 
+            // BaseType
+            // 
+            this.BaseType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.BaseType.DataPropertyName = "BaseType";
+            this.BaseType.HeaderText = "Base Type";
+            this.BaseType.MinimumWidth = 8;
+            this.BaseType.Name = "BaseType";
+            this.BaseType.Width = 120;
+            // 
+            // AppraisalBase
+            // 
+            this.AppraisalBase.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.AppraisalBase.DataPropertyName = "AppraisalBase";
+            this.AppraisalBase.HeaderText = "Appraisal Base";
+            this.AppraisalBase.MinimumWidth = 8;
+            this.AppraisalBase.Name = "AppraisalBase";
+            this.AppraisalBase.Width = 152;
+            // 
+            // IsDel
+            // 
+            this.IsDel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.IsDel.DataPropertyName = "IsDel";
+            this.IsDel.HeaderText = "Suspended";
+            this.IsDel.MinimumWidth = 8;
+            this.IsDel.Name = "IsDel";
+            this.IsDel.Width = 127;
             // 
             // UserManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1439, 948);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvUserAppraisal);
             this.Controls.Add(this.gbxFilter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserManagerForm";
@@ -137,7 +211,7 @@
             this.Load += new System.EventHandler(this.UserManagerForm_Load);
             this.gbxFilter.ResumeLayout(false);
             this.gbxFilter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppraisal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -145,12 +219,18 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbxFilter;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUserAppraisal;
         private System.Windows.Forms.Label lbUserName;
         private System.Windows.Forms.Label IbIdentity;
         private System.Windows.Forms.TextBox tbxUserName;
         private System.Windows.Forms.ComboBox cbxIdentity;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.CheckBox cbxSuspended;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BaseType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppraisalBase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsDel;
     }
 }

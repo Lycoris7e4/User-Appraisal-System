@@ -20,8 +20,15 @@ namespace Appraisal_System
 
         private void UserManagerForm_Load(object sender, EventArgs e)
         {
+            BindCbx();
+            BindDgv();
+        }
+
+        private void BindCbx()
+        {
             List<AppraisalBases> appraisalBases = new List<AppraisalBases>();
 
+            /* Get Data From DataBase */
             // Method 1
             // appraisalBases.Add(new AppraisalBases
             // {
@@ -42,7 +49,8 @@ namespace Appraisal_System
                 IsDel = false
             });
 
-            // Method 1
+            /* Initialize Identity ComboBox */
+            // Method 1 (Only Text)
             // foreach (var appraisalBase in appraisalBases)
             // {
             //     cbxIdentity.Items.Add(appraisalBase.BaseType);
@@ -54,6 +62,34 @@ namespace Appraisal_System
             cbxIdentity.ValueMember = "Id";
 
             cbxIdentity.SelectedIndex = 0;
+        }
+        private void BindDgv()
+        {
+            dgvUserAppraisal.AutoGenerateColumns = false;
+
+            string userName = tbxUserName.Text.Trim();
+            int baseTypeId = (int)cbxIdentity.SelectedValue;
+            bool isSuspended = cbxSuspended.Checked;
+
+            List<UserAppraisalBases> userAppraisalBases = UserAppraisalBases.GetListJoinAppraisal();
+            if (baseTypeId == 0)
+            {
+                dgvUserAppraisal.DataSource = userAppraisalBases.FindAll
+                    (m => m.UserName.Contains(userName) &&
+                     m.IsDel == isSuspended);
+            }
+            else
+            {
+                dgvUserAppraisal.DataSource = userAppraisalBases.FindAll
+                    (m => m.UserName.Contains(userName) &&
+                     m.BaseTypeId == baseTypeId &&
+                     m.IsDel == isSuspended);
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindDgv();
         }
     }
 }

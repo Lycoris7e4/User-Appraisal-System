@@ -33,7 +33,7 @@
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("CoefficientManager");
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("UserAppraisal");
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.trvMenu = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -48,20 +48,20 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer1.Panel1.Controls.Add(this.trvMenu);
             this.splitContainer1.Size = new System.Drawing.Size(1310, 718);
             this.splitContainer1.SplitterDistance = 323;
             this.splitContainer1.TabIndex = 0;
             // 
-            // treeView1
+            // trvMenu
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeView1.FullRowSelect = true;
-            this.treeView1.ItemHeight = 60;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.treeView1.Name = "treeView1";
+            this.trvMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trvMenu.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trvMenu.FullRowSelect = true;
+            this.trvMenu.ItemHeight = 60;
+            this.trvMenu.Location = new System.Drawing.Point(0, 0);
+            this.trvMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.trvMenu.Name = "trvMenu";
             treeNode1.Name = "tnUserManager";
             treeNode1.Text = "UserManager";
             treeNode2.Name = "tnBaseManager";
@@ -70,14 +70,15 @@
             treeNode3.Text = "CoefficientManager";
             treeNode4.Name = "tnUserAppraisal";
             treeNode4.Text = "UserAppraisal";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            this.trvMenu.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3,
             treeNode4});
-            this.treeView1.ShowLines = false;
-            this.treeView1.Size = new System.Drawing.Size(323, 718);
-            this.treeView1.TabIndex = 0;
+            this.trvMenu.ShowLines = false;
+            this.trvMenu.Size = new System.Drawing.Size(323, 718);
+            this.trvMenu.TabIndex = 0;
+            this.trvMenu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvMenu_AfterSelect);
             // 
             // MainForm
             // 
@@ -99,7 +100,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView trvMenu;
     }
 }
 

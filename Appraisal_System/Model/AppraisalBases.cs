@@ -19,7 +19,8 @@ namespace Appraisal_System.Model
         public static List<AppraisalBases> ListAll()
         {
             List<AppraisalBases> appraisalBases = new List<AppraisalBases>();
-            DataTable dt = SqlHelper.ExecuteTable("SELECT * FROM AppraisalBases");
+            DataTable dt = SqlHelper.ExecuteTable(
+                "SELECT * FROM AppraisalBases");
             foreach (DataRow dr in dt.Rows)
             {
                 appraisalBases.Add(ToModel(dr));

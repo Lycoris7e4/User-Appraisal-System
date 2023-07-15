@@ -26,5 +26,16 @@ namespace Appraisal_System
             userManagerForm.Dock = DockStyle.Fill;
             userManagerForm.Show();
         }
+
+        private void trvMenu_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            foreach (TreeNode node in trvMenu.Nodes)
+            {
+                node.BackColor = Color.White;
+                node.ForeColor = Color.Black;
+            }
+            e.Node.BackColor = SystemColors.Highlight;
+            e.Node.ForeColor = Color.White;
+        }
     }
 }
