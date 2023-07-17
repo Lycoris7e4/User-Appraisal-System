@@ -16,13 +16,13 @@ namespace Appraisal_System.Model
         public int BaseTypeId { get; set; }
         public string BaseType { get; set; }
         public int AppraisalBase { get; set; }
-        public bool IsDel { get; set; }
+        public bool IsSuspended { get; set; }
 
         public static List<UserAppraisalBases> GetListJoinAppraisal()
         {
             List<UserAppraisalBases> userAppraisalBases = new List<UserAppraisalBases>();
             DataTable dt = SqlHelper.ExecuteTable(
-                "SELECT u.Id, u.UserName, u.Sex, u.BaseTypeId, u.IsDel, a.AppraisalBase, a.BaseType " +
+                "SELECT u.Id, u.UserName, u.Sex, u.BaseTypeId, u.IsSuspended, a.AppraisalBase, a.BaseType " +
                 "FROM Users u LEFT JOIN AppraisalBases a ON u.BaseTypeId = a.Id");
             foreach (DataRow dr in dt.Rows)
             {
@@ -41,7 +41,7 @@ namespace Appraisal_System.Model
             userAppraisalBase.BaseTypeId = (int)dr["BaseTypeId"];
             userAppraisalBase.BaseType = dr["BaseType"].ToString();
             userAppraisalBase.AppraisalBase = (int)dr["AppraisalBase"];
-            userAppraisalBase.IsDel = (bool)dr["IsDel"];
+            userAppraisalBase.IsSuspended = (bool)dr["IsSuspended"];
             return userAppraisalBase;
         }
     }

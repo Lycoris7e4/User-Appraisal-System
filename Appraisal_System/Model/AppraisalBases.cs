@@ -14,7 +14,7 @@ namespace Appraisal_System.Model
         public int Id { get; set; }
         public string BaseType { get; set; }
         public int AppraisalBase { get; set; }
-        public bool IsDel { get; set; }
+        public bool IsSuspended { get; set; }
 
         public static List<AppraisalBases> ListAll()
         {
@@ -34,7 +34,7 @@ namespace Appraisal_System.Model
             appraisalBases.Id = (int)dr["Id"];
             appraisalBases.BaseType = dr["BaseType"].ToString();
             appraisalBases.AppraisalBase = (int)dr["AppraisalBase"];
-            appraisalBases.IsDel = (bool)dr["IsDel"];
+            appraisalBases.IsSuspended = (bool)dr["IsSuspended"];
             return appraisalBases;
         }
     }

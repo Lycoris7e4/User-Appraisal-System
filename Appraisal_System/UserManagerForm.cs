@@ -24,6 +24,53 @@ namespace Appraisal_System
             BindDgv();
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindDgv();
+        }
+
+        private void dgvUserAppraisal_MouseDown(object sender, MouseEventArgs e)
+        {
+            clearDGVSelectedItems();
+
+            if (e.Button == MouseButtons.Right)
+            {
+                tsmAdd.Visible = true;
+                tsmEdit.Visible = false;
+                tsmEnable.Visible = false;
+                tsmDisable.Visible = false;
+            }
+        }
+
+        private void dgvUserAppraisal_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            clearDGVSelectedItems();
+
+            if (e.Button == MouseButtons.Right && e.RowIndex > -1)
+            {
+                dgvUserAppraisal.Rows[e.RowIndex].Selected = true;
+                tsmAdd.Visible = true;
+                tsmEdit.Visible = true;
+
+                bool isSuspended = (bool)dgvUserAppraisal.SelectedRows[0].Cells["IsSuspended"].Value;
+                tsmEnable.Visible = isSuspended;
+                tsmDisable.Visible = !isSuspended;
+            }
+        }
+
+        private void clearDGVSelectedItems()
+        {
+            foreach (DataGridViewCell cell in dgvUserAppraisal.SelectedCells)
+            {
+                cell.Selected = false;
+            }
+
+            foreach (DataGridViewRow row in dgvUserAppraisal.SelectedRows)
+            {
+                row.Selected = false;
+            }
+        }
+
         private void BindCbx()
         {
             List<AppraisalBases> appraisalBases = new List<AppraisalBases>();
@@ -46,7 +93,7 @@ namespace Appraisal_System
                 Id = 0,
                 BaseType = "--List All--",
                 AppraisalBase = 0,
-                IsDel = false
+                IsSuspended = false
             });
 
             /* Initialize Identity ComboBox */
@@ -63,33 +110,35 @@ namespace Appraisal_System
 
             cbxIdentity.SelectedIndex = 0;
         }
+
         private void BindDgv()
         {
             dgvUserAppraisal.AutoGenerateColumns = false;
 
             string userName = tbxUserName.Text.Trim();
             int baseTypeId = (int)cbxIdentity.SelectedValue;
-            bool isSuspended = cbxSuspended.Checked;
+            bool isSuspended = chxSuspended.Checked;
 
             List<UserAppraisalBases> userAppraisalBases = UserAppraisalBases.GetListJoinAppraisal();
             if (baseTypeId == 0)
             {
                 dgvUserAppraisal.DataSource = userAppraisalBases.FindAll
                     (m => m.UserName.Contains(userName) &&
-                     m.IsDel == isSuspended);
+                     m.IsSuspended == isSuspended);
             }
             else
             {
                 dgvUserAppraisal.DataSource = userAppraisalBases.FindAll
                     (m => m.UserName.Contains(userName) &&
                      m.BaseTypeId == baseTypeId &&
-                     m.IsDel == isSuspended);
+                     m.IsSuspended == isSuspended);
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void tsmAdd_Click(object sender, EventArgs e)
         {
-            BindDgv();
+            EditUserForm editUserForm = new EditUserForm();
+            editUserForm.ShowDialog();
         }
     }
 }
