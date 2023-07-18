@@ -25,12 +25,13 @@ namespace Appraisal_System.Utility
             }
         }
         
-        public static int ExecuteNonQuery(string cmdText)
+        public static int ExecuteNonQuery(string cmdText, params SqlParameter[] sqlParameters)
         {
             using (SqlConnection conn = new SqlConnection(Constr))
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(cmdText, conn);
+                cmd.Parameters.AddRange(sqlParameters);
                 int rows = cmd.ExecuteNonQuery();
                 if (rows <= 0) throw new Exception("DataSet cmd fails.");
                 return rows;

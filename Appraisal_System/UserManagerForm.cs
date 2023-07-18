@@ -139,6 +139,7 @@ namespace Appraisal_System
         {
             EditUserForm editUserForm = new EditUserForm();
             editUserForm.ShowDialog();
+            BindDgv();
         }
     }
 }

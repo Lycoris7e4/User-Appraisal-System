@@ -1,4 +1,5 @@
 ﻿using Appraisal_System.Model;
+using Appraisal_System.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,27 @@ namespace Appraisal_System
             cbxIdentity.DataSource = appraisalBases;
             cbxIdentity.DisplayMember = "BaseType";
             cbxIdentity.ValueMember = "Id";
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string userName = tbxUserName.Text.Trim();
+            int baseTypeId = (int)cbxIdentity.SelectedValue;
+            string sex = cbxSex.Text;
+            bool isSuspended = chxSuspended.Checked;
+
+            Users user = new Users
+            {
+                UserName = userName,
+                BaseTypeId = baseTypeId,
+                Password = "111",
+                Sex = sex,
+                IsSuspended = isSuspended,
+            };
+            Users.Insert(user);
+
+            MessageBox.Show("Successfully add user: " + userName);
+            this.Close();
         }
     }
 }
