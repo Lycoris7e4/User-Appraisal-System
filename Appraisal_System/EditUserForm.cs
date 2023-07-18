@@ -14,9 +14,12 @@ namespace Appraisal_System
 {
     public partial class EditUserForm : Form
     {
-        public EditUserForm()
+        private DelBindDgv _delBindDgv;
+
+        public EditUserForm(DelBindDgv delBindDgv)
         {
             InitializeComponent();
+            _delBindDgv = delBindDgv;
         }
 
         private void EditUserForm_Load(object sender, EventArgs e)
@@ -46,6 +49,11 @@ namespace Appraisal_System
             Users.Insert(user);
 
             MessageBox.Show("Successfully add user: " + userName);
+            _delBindDgv();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

@@ -11,8 +11,12 @@ using System.Windows.Forms;
 
 namespace Appraisal_System
 {
+    public delegate void DelBindDgv();
+
     public partial class UserManagerForm : Form
     {
+        DelBindDgv delBindDgv;
+
         public UserManagerForm()
         {
             InitializeComponent();
@@ -22,6 +26,7 @@ namespace Appraisal_System
         {
             BindCbx();
             BindDgv();
+            delBindDgv = BindDgv;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -137,9 +142,8 @@ namespace Appraisal_System
 
         private void tsmAdd_Click(object sender, EventArgs e)
         {
-            EditUserForm editUserForm = new EditUserForm();
+            EditUserForm editUserForm = new EditUserForm(delBindDgv);
             editUserForm.ShowDialog();
-            BindDgv();
         }
     }
 }
