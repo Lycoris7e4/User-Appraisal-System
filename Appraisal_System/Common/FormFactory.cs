@@ -9,8 +9,11 @@ namespace Appraisal_System.Common
 {
     public class FormFactory
     {
+        private static EmptyForm emptyForm;
         private static UserManagerForm userManagerForm;
         private static BaseManagerForm baseManagerForm;
+
+        private static List<Form> forms = new List<Form>();
 
         public static Form CreateForm(int index)
         {
@@ -21,23 +24,32 @@ namespace Appraisal_System.Common
                     if (userManagerForm == null)
                     {
                         userManagerForm = new UserManagerForm();
+                        forms.Add(userManagerForm);
                     }
                     return userManagerForm;
                 case 1:
                     if (baseManagerForm == null)
                     {
                         baseManagerForm = new BaseManagerForm();
+                        forms.Add(baseManagerForm);
                     }
                     return baseManagerForm;
                 default:
-                    return null;
+                    if (emptyForm == null)
+                    {
+                        emptyForm = new EmptyForm();
+                        forms.Add(emptyForm);
+                    }
+                    return emptyForm;
             }
         }
 
         public static void HideAllForms()
         {
-            userManagerForm?.Hide();
-            baseManagerForm?.Hide();
+            foreach (Form form in forms)
+            {
+                form.Hide();
+            }
         }
     }
 }

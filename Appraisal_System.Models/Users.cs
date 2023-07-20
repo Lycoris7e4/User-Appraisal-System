@@ -47,17 +47,17 @@ namespace Appraisal_System.Model
         {
             return SqlHelper.ExecuteNonQuery(
                 "UPDATE Users SET " +
-                "Password = @Password," +
-                "BaseTypeId = @BaseTypeId," +
                 "UserName = @UserName," +
+                "Password = @Password," +
                 "Sex = @Sex," +
+                "BaseTypeId = @BaseTypeId," +
                 "IsSuspended = @IsSuspended " +
                 "WHERE Id = @Id",
                 new SqlParameter("@Id", user.Id),
-                new SqlParameter("@Password", user.Password),
-                new SqlParameter("@BaseTypeId", user.BaseTypeId),
                 new SqlParameter("@UserName", user.UserName),
+                new SqlParameter("@Password", user.Password),
                 new SqlParameter("@Sex", user.Sex),
+                new SqlParameter("@BaseTypeId", user.BaseTypeId),
                 new SqlParameter("@IsSuspended", user.IsSuspended));
         }
     }

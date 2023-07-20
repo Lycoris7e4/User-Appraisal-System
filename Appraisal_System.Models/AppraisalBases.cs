@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,19 +24,23 @@ namespace Appraisal_System.Model
                 "SELECT * FROM AppraisalBases");
             foreach (DataRow dr in dt.Rows)
             {
-                appraisalBases.Add(ToModel(dr));
+                appraisalBases.Add(dr.DataRowToModel<AppraisalBases>());
             }
             return appraisalBases;
         }
 
-        private static AppraisalBases ToModel(DataRow dr)
+        public static int Update(AppraisalBases appraisalBases)
         {
-            AppraisalBases appraisalBases = new AppraisalBases();
-            appraisalBases.Id = (int)dr["Id"];
-            appraisalBases.BaseType = dr["BaseType"].ToString();
-            appraisalBases.AppraisalBase = (int)dr["AppraisalBase"];
-            appraisalBases.IsSuspended = (bool)dr["IsSuspended"];
-            return appraisalBases;
+            return SqlHelper.ExecuteNonQuery(
+                "UPDATE AppraisalBases SET " +
+                "BaseType = @BaseType," +
+                "AppraisalBase = @AppraisalBase," +
+                "IsSuspended = @IsSuspended " +
+                "WHERE Id = @Id",
+                new SqlParameter("@Id", appraisalBases.Id),
+                new SqlParameter("@BaseType", appraisalBases.BaseType),
+                new SqlParameter("@AppraisalBase", appraisalBases.AppraisalBase),
+                new SqlParameter("@IsSuspended", appraisalBases.IsSuspended));
         }
     }
 }

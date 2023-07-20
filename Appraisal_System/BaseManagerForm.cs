@@ -22,5 +22,11 @@ namespace Appraisal_System
         {
             dgvBase.DataSource = AppraisalBases.ListAll();
         }
+
+        private void dgvBase_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            AppraisalBases appraisalBase = (AppraisalBases)dgvBase.Rows[e.RowIndex].DataBoundItem;
+            AppraisalBases.Update(appraisalBase);
+        }
     }
 }

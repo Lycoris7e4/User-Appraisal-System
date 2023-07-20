@@ -1,6 +1,6 @@
 ﻿namespace Appraisal_System
 {
-    partial class BaseManagerForm
+    partial class EmptyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,40 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvBase = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBase)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // dgvBase
+            // label1
             // 
-            this.dgvBase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBase.Location = new System.Drawing.Point(0, 0);
-            this.dgvBase.Name = "dgvBase";
-            this.dgvBase.RowHeadersWidth = 62;
-            this.dgvBase.RowTemplate.Height = 28;
-            this.dgvBase.Size = new System.Drawing.Size(1292, 770);
-            this.dgvBase.TabIndex = 0;
-            this.dgvBase.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBase_CellValueChanged);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(261, 298);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(603, 40);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "This form has not been created yet...";
             // 
-            // BaseManagerForm
+            // EmptyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1292, 770);
-            this.Controls.Add(this.dgvBase);
+            this.ClientSize = new System.Drawing.Size(1156, 669);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "BaseManagerForm";
-            this.Text = "BaseManagerForm";
+            this.Name = "EmptyForm";
+            this.Text = "EmptyForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.BaseManagerForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBase)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvBase;
+        private System.Windows.Forms.Label label1;
     }
 }
