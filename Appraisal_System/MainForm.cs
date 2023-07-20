@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Appraisal_System.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,15 +19,6 @@ namespace Appraisal_System
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            UserManagerForm userManagerForm = new UserManagerForm();
-            userManagerForm.MdiParent = this;
-            userManagerForm.Parent = splitContainer1.Panel2;
-            userManagerForm.Dock = DockStyle.Fill;
-            userManagerForm.Show();
-        }
-
         private void trvMenu_AfterSelect(object sender, TreeViewEventArgs e)
         {
             foreach (TreeNode node in trvMenu.Nodes)
@@ -36,6 +28,12 @@ namespace Appraisal_System
             }
             e.Node.BackColor = SystemColors.Highlight;
             e.Node.ForeColor = Color.White;
+
+            Form form = FormFactory.CreateForm(e.Node.Index);
+            form.MdiParent = this;
+            form.Parent = splitContainer1.Panel2;
+            form.Dock = DockStyle.Fill;
+            form.Show();
         }
     }
 }

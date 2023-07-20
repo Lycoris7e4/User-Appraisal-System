@@ -145,5 +145,12 @@ namespace Appraisal_System
             EditUserForm editUserForm = new EditUserForm(delBindDgv);
             editUserForm.ShowDialog();
         }
+
+        private void tsmEdit_Click(object sender, EventArgs e)
+        {
+            int userId = (int)dgvUserAppraisal.SelectedRows[0].Cells["Id"].Value;
+            EditUserForm editUserForm = new EditUserForm(delBindDgv, userId);
+            editUserForm.ShowDialog();
+        }
     }
 }

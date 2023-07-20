@@ -234,31 +234,32 @@
             this.tsmEnable,
             this.tsmDisable});
             this.cmsUserManager.Name = "cmsUserManager";
-            this.cmsUserManager.Size = new System.Drawing.Size(241, 157);
+            this.cmsUserManager.Size = new System.Drawing.Size(145, 124);
             // 
             // tsmAdd
             // 
             this.tsmAdd.Name = "tsmAdd";
-            this.tsmAdd.Size = new System.Drawing.Size(240, 30);
+            this.tsmAdd.Size = new System.Drawing.Size(144, 30);
             this.tsmAdd.Text = "Add";
             this.tsmAdd.Click += new System.EventHandler(this.tsmAdd_Click);
             // 
             // tsmEdit
             // 
             this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(240, 30);
+            this.tsmEdit.Size = new System.Drawing.Size(144, 30);
             this.tsmEdit.Text = "Edit";
+            this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
             // 
             // tsmEnable
             // 
             this.tsmEnable.Name = "tsmEnable";
-            this.tsmEnable.Size = new System.Drawing.Size(240, 30);
+            this.tsmEnable.Size = new System.Drawing.Size(144, 30);
             this.tsmEnable.Text = "Enable";
             // 
             // tsmDisable
             // 
             this.tsmDisable.Name = "tsmDisable";
-            this.tsmDisable.Size = new System.Drawing.Size(240, 30);
+            this.tsmDisable.Size = new System.Drawing.Size(144, 30);
             this.tsmDisable.Text = "Disable";
             // 
             // UserManagerForm
@@ -271,6 +272,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserManagerForm";
             this.Text = "UserManager";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UserManagerForm_Load);
             this.gbxFilter.ResumeLayout(false);
             this.gbxFilter.PerformLayout();

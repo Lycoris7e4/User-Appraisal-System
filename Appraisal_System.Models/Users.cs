@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Appraisal_System.Models
+namespace Appraisal_System.Model
 {
     public class Users
     {
@@ -21,7 +21,7 @@ namespace Appraisal_System.Models
         public static List<Users> ListAll()
         {
             DataTable dt = SqlHelper.ExecuteTable(
-                "SELECT u.Id, u.UserName, u.Password, u.Sex, u.BaseTypeId, u.IsSuspended" +
+                "SELECT u.Id, u.UserName, u.Password, u.Sex, u.BaseTypeId, u.IsSuspended " +
                 "FROM Users u");
             List<Users> users = new List<Users>();
             foreach (DataRow dr in dt.Rows)
@@ -34,7 +34,7 @@ namespace Appraisal_System.Models
         public static int Insert(Users user)
         {
             return SqlHelper.ExecuteNonQuery(
-                "INSERT INTO Users(UserName, Password, Sex, BaseTypeId, IsSuspended) " +
+                $"INSERT INTO Users(UserName, Password, Sex, BaseTypeId, IsSuspended) " +
                 "VALUES(@UserName, @Password, @Sex, @BaseTypeId, @IsSuspended)",
                 new SqlParameter("@UserName", user.UserName),
                 new SqlParameter("@Password", user.Password),
@@ -47,7 +47,7 @@ namespace Appraisal_System.Models
         {
             return SqlHelper.ExecuteNonQuery(
                 "UPDATE Users SET " +
-                "PassWord = @PassWord," +
+                "Password = @Password," +
                 "BaseTypeId = @BaseTypeId," +
                 "UserName = @UserName," +
                 "Sex = @Sex," +

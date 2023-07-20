@@ -47,6 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseManagerForm.Designer.cs">
+      <DependentUpon>BaseManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FormFactory.cs" />
     <Compile Include="EditUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +74,9 @@
     <Compile Include="UserManagerForm.Designer.cs">
       <DependentUpon>UserManagerForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BaseManagerForm.resx">
+      <DependentUpon>BaseManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>
     </EmbeddedResource>
