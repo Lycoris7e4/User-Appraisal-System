@@ -63,12 +63,16 @@
             this.trvMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.trvMenu.Name = "trvMenu";
             treeNode1.Name = "tnUserManager";
+            treeNode1.Tag = "UserManagerForm";
             treeNode1.Text = "UserManager";
             treeNode2.Name = "tnBaseManager";
+            treeNode2.Tag = "BaseManagerForm";
             treeNode2.Text = "BaseManager";
             treeNode3.Name = "tnCoefficientManager";
+            treeNode3.Tag = "";
             treeNode3.Text = "CoefficientManager";
             treeNode4.Name = "tnUserAppraisal";
+            treeNode4.Tag = "";
             treeNode4.Text = "UserAppraisal";
             this.trvMenu.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
