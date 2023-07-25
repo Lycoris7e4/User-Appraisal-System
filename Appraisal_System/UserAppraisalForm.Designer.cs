@@ -28,53 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbxYear = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvUserAppraisal = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BaseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppraisalBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppraisal)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cbxYear);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(1517, 125);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            // 
             // cbxYear
             // 
+            this.cbxYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxYear.FormattingEnabled = true;
-            this.cbxYear.Location = new System.Drawing.Point(105, 54);
+            this.cbxYear.Items.AddRange(new object[] {
+            "2021",
+            "2022"});
+            this.cbxYear.Location = new System.Drawing.Point(16, 23);
             this.cbxYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxYear.Name = "cbxYear";
-            this.cbxYear.Size = new System.Drawing.Size(160, 37);
+            this.cbxYear.Size = new System.Drawing.Size(160, 40);
+            this.cbxYear.Sorted = true;
             this.cbxYear.TabIndex = 1;
-            this.cbxYear.Text = "2020";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 57);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Year";
+            this.cbxYear.Text = "2022";
             // 
             // dgvUserAppraisal
             // 
@@ -92,13 +69,13 @@
             this.Sex,
             this.BaseType,
             this.AppraisalBase});
-            this.dgvUserAppraisal.Location = new System.Drawing.Point(16, 148);
+            this.dgvUserAppraisal.Location = new System.Drawing.Point(16, 82);
             this.dgvUserAppraisal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvUserAppraisal.Name = "dgvUserAppraisal";
             this.dgvUserAppraisal.ReadOnly = true;
             this.dgvUserAppraisal.RowHeadersWidth = 62;
             this.dgvUserAppraisal.RowTemplate.Height = 28;
-            this.dgvUserAppraisal.Size = new System.Drawing.Size(1517, 627);
+            this.dgvUserAppraisal.Size = new System.Drawing.Size(1517, 693);
             this.dgvUserAppraisal.TabIndex = 1;
             // 
             // Id
@@ -156,26 +133,21 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1549, 788);
+            this.Controls.Add(this.cbxYear);
             this.Controls.Add(this.dgvUserAppraisal);
-            this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UserAppraisalForm";
             this.Text = "UserAppraisalForm";
             this.Load += new System.EventHandler(this.UserAppraisalForm_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppraisal)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbxYear;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvUserAppraisal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;

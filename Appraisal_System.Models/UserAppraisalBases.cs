@@ -32,6 +32,13 @@ namespace Appraisal_System.Model
             return userAppraisalBases;
         }
 
+        public static DataTable GetDtJoinAppraisal()
+        {
+            return SqlHelper.ExecuteTable(
+                "SELECT u.Id, u.UserName, u.Sex, u.BaseTypeId, u.IsSuspended, a.AppraisalBase, a.BaseType " +
+                "FROM Users u LEFT JOIN AppraisalBases a ON u.BaseTypeId = a.Id");
+        }
+
         private static UserAppraisalBases ToModel(DataRow dr)
         {
             UserAppraisalBases userAppraisalBase = new UserAppraisalBases();
