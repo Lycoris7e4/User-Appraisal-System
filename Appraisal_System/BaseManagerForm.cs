@@ -20,13 +20,17 @@ namespace Appraisal_System
 
         private void BaseManagerForm_Load(object sender, EventArgs e)
         {
+            dgvBase.AutoGenerateColumns = false;
             dgvBase.DataSource = AppraisalBases.ListAll();
         }
 
         private void dgvBase_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            AppraisalBases appraisalBase = (AppraisalBases)dgvBase.Rows[e.RowIndex].DataBoundItem;
-            AppraisalBases.Update(appraisalBase);
+            if (e.RowIndex >= 0)
+            {
+                AppraisalBases appraisalBase = (AppraisalBases)dgvBase.Rows[e.RowIndex].DataBoundItem;
+                AppraisalBases.Update(appraisalBase);
+            }
         }
     }
 }

@@ -72,7 +72,7 @@
             treeNode3.Tag = "";
             treeNode3.Text = "CoefficientManager";
             treeNode4.Name = "tnUserAppraisal";
-            treeNode4.Tag = "";
+            treeNode4.Tag = "UserAppraisalForm";
             treeNode4.Text = "UserAppraisal";
             this.trvMenu.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,

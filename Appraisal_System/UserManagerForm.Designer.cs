@@ -137,6 +137,7 @@
             this.dgvUserAppraisal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvUserAppraisal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvUserAppraisal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUserAppraisal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -167,11 +168,11 @@
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
+            this.Id.HeaderText = "ID";
             this.Id.MinimumWidth = 8;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            this.Id.Width = 59;
+            this.Id.Width = 62;
             // 
             // UserName
             // 
@@ -197,11 +198,11 @@
             // 
             this.BaseType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.BaseType.DataPropertyName = "BaseType";
-            this.BaseType.HeaderText = "Base Type";
+            this.BaseType.HeaderText = "Identity";
             this.BaseType.MinimumWidth = 8;
             this.BaseType.Name = "BaseType";
             this.BaseType.ReadOnly = true;
-            this.BaseType.Width = 120;
+            this.BaseType.Width = 97;
             // 
             // AppraisalBase
             // 

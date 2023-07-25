@@ -29,53 +29,6 @@ namespace Appraisal_System
             delBindDgv = BindDgv;
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            BindDgv();
-        }
-
-        private void dgvUserAppraisal_MouseDown(object sender, MouseEventArgs e)
-        {
-            clearDGVSelectedItems();
-
-            if (e.Button == MouseButtons.Right)
-            {
-                tsmAdd.Visible = true;
-                tsmEdit.Visible = false;
-                tsmEnable.Visible = false;
-                tsmDisable.Visible = false;
-            }
-        }
-
-        private void dgvUserAppraisal_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            clearDGVSelectedItems();
-
-            if (e.Button == MouseButtons.Right && e.RowIndex > -1)
-            {
-                dgvUserAppraisal.Rows[e.RowIndex].Selected = true;
-                tsmAdd.Visible = true;
-                tsmEdit.Visible = true;
-
-                bool isSuspended = (bool)dgvUserAppraisal.SelectedRows[0].Cells["IsSuspended"].Value;
-                tsmEnable.Visible = isSuspended;
-                tsmDisable.Visible = !isSuspended;
-            }
-        }
-
-        private void clearDGVSelectedItems()
-        {
-            foreach (DataGridViewCell cell in dgvUserAppraisal.SelectedCells)
-            {
-                cell.Selected = false;
-            }
-
-            foreach (DataGridViewRow row in dgvUserAppraisal.SelectedRows)
-            {
-                row.Selected = false;
-            }
-        }
-
         private void BindCbx()
         {
             List<AppraisalBases> appraisalBases = new List<AppraisalBases>();
@@ -137,6 +90,53 @@ namespace Appraisal_System
                     (m => m.UserName.Contains(userName) &&
                      m.BaseTypeId == baseTypeId &&
                      m.IsSuspended == isSuspended);
+            }
+        }
+
+        private void clearDGVSelectedItems()
+        {
+            foreach (DataGridViewCell cell in dgvUserAppraisal.SelectedCells)
+            {
+                cell.Selected = false;
+            }
+
+            foreach (DataGridViewRow row in dgvUserAppraisal.SelectedRows)
+            {
+                row.Selected = false;
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindDgv();
+        }
+
+        private void dgvUserAppraisal_MouseDown(object sender, MouseEventArgs e)
+        {
+            clearDGVSelectedItems();
+
+            if (e.Button == MouseButtons.Right)
+            {
+                tsmAdd.Visible = true;
+                tsmEdit.Visible = false;
+                tsmEnable.Visible = false;
+                tsmDisable.Visible = false;
+            }
+        }
+
+        private void dgvUserAppraisal_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            clearDGVSelectedItems();
+
+            if (e.Button == MouseButtons.Right && e.RowIndex > -1)
+            {
+                dgvUserAppraisal.Rows[e.RowIndex].Selected = true;
+                tsmAdd.Visible = true;
+                tsmEdit.Visible = true;
+
+                bool isSuspended = (bool)dgvUserAppraisal.SelectedRows[0].Cells["IsSuspended"].Value;
+                tsmEnable.Visible = isSuspended;
+                tsmDisable.Visible = !isSuspended;
             }
         }
 
