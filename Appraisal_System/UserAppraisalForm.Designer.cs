@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cbxYear = new System.Windows.Forms.ComboBox();
             this.dgvUserAppraisal = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -35,7 +36,10 @@
             this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BaseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppraisalBase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsAppraisal = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppraisal)).BeginInit();
+            this.cmsAppraisal.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbxYear
@@ -46,12 +50,13 @@
             "2021",
             "2022"});
             this.cbxYear.Location = new System.Drawing.Point(16, 23);
-            this.cbxYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxYear.Margin = new System.Windows.Forms.Padding(4);
             this.cbxYear.Name = "cbxYear";
             this.cbxYear.Size = new System.Drawing.Size(160, 40);
             this.cbxYear.Sorted = true;
             this.cbxYear.TabIndex = 1;
-            this.cbxYear.Text = "2022";
+            this.cbxYear.Text = "2021";
+            this.cbxYear.SelectedIndexChanged += new System.EventHandler(this.cbxYear_SelectedIndexChanged);
             // 
             // dgvUserAppraisal
             // 
@@ -69,14 +74,18 @@
             this.Sex,
             this.BaseType,
             this.AppraisalBase});
+            this.dgvUserAppraisal.ContextMenuStrip = this.cmsAppraisal;
             this.dgvUserAppraisal.Location = new System.Drawing.Point(16, 82);
-            this.dgvUserAppraisal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvUserAppraisal.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvUserAppraisal.MultiSelect = false;
             this.dgvUserAppraisal.Name = "dgvUserAppraisal";
             this.dgvUserAppraisal.ReadOnly = true;
             this.dgvUserAppraisal.RowHeadersWidth = 62;
             this.dgvUserAppraisal.RowTemplate.Height = 28;
             this.dgvUserAppraisal.Size = new System.Drawing.Size(1517, 693);
             this.dgvUserAppraisal.TabIndex = 1;
+            this.dgvUserAppraisal.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUserAppraisal_CellMouseDown);
+            this.dgvUserAppraisal.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvUserAppraisal_MouseDown);
             // 
             // Id
             // 
@@ -128,6 +137,21 @@
             this.AppraisalBase.ReadOnly = true;
             this.AppraisalBase.Width = 180;
             // 
+            // cmsAppraisal
+            // 
+            this.cmsAppraisal.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.cmsAppraisal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmEdit});
+            this.cmsAppraisal.Name = "cmsAppraisal";
+            this.cmsAppraisal.Size = new System.Drawing.Size(241, 67);
+            // 
+            // tsmEdit
+            // 
+            this.tsmEdit.Name = "tsmEdit";
+            this.tsmEdit.Size = new System.Drawing.Size(240, 30);
+            this.tsmEdit.Text = "Edit";
+            this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
+            // 
             // UserAppraisalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -137,11 +161,12 @@
             this.Controls.Add(this.dgvUserAppraisal);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserAppraisalForm";
             this.Text = "UserAppraisalForm";
             this.Load += new System.EventHandler(this.UserAppraisalForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppraisal)).EndInit();
+            this.cmsAppraisal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -154,5 +179,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
         private System.Windows.Forms.DataGridViewTextBoxColumn BaseType;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppraisalBase;
+        private System.Windows.Forms.ContextMenuStrip cmsAppraisal;
+        private System.Windows.Forms.ToolStripMenuItem tsmEdit;
     }
 }

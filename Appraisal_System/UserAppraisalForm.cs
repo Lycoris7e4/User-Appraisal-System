@@ -13,6 +13,8 @@ namespace Appraisal_System
 {
     public partial class UserAppraisalForm : Form
     {
+        private DataTable dtUser;
+
         public UserAppraisalForm()
         {
             InitializeComponent();
@@ -22,7 +24,8 @@ namespace Appraisal_System
         {
             SetCol();
 
-            SetUserDt(GetUserDt());
+            InitDt();
+            UpdateDt();
         }
 
         private void SetCol()
@@ -82,9 +85,9 @@ namespace Appraisal_System
             });
         }
 
-        private DataTable GetUserDt()
+        private void InitDt()
         {
-            DataTable dtUser = UserAppraisalBases.GetDtJoinAppraisal();
+            dtUser = UserAppraisalBases.GetDtJoinAppraisal();
             List<AppraisalCoefficients> appraisalCoefficients = AppraisalCoefficients.ListAll();
 
             foreach (var item in appraisalCoefficients)
@@ -114,48 +117,46 @@ namespace Appraisal_System
             {
                 ColumnName = "YearBonus"
             });
-
-            return dtUser;
         }
 
-        private void SetUserDt(DataTable dtUser)
+        private void UpdateDt()
         {
-            List<UserAppraisalCoefficients> userAppraisalCoefficients
-                = UserAppraisalCoefficients.ListAll();
+
+            List<UserAppraisalCoefficients> uac = UserAppraisalCoefficients.ListAll();
             for (int i = 0; i < dtUser.Rows.Count; ++i)
             {
-                var uacFilter = userAppraisalCoefficients.FindAll(m => 
-                    m.UserId == (int)dtUser.Rows[i]["Id"] &&
-                    m.AssessmentYear == Convert.ToInt32(cbxYear.Text));
-                double[] yearBonusArray = new double[uacFilter.Count];
+                var uacCurUser = uac.FindAll(m => m.UserId == (int)dtUser.Rows[i]["Id"]);
 
-                for (int j = 0; j < uacFilter.Count; ++j)
+                double[] yearBonusArray = new double[uacCurUser.Count];
+                for (int j = 0; j < uacCurUser.Count; ++j)
                 {
-                    string appraisalTypeKey = "AppraisalType" + uacFilter[j].CoefficientId;
-                    string appraisalCoefficientKey = "AppraisalCoefficient" + uacFilter[j].CoefficientId;
-                    string calculationMethodKey = "CalculationMethod" + uacFilter[j].CoefficientId;
+                    string appraisalTypeKey = "AppraisalType" + uacCurUser[j].CoefficientId;
+                    string appraisalCoefficientKey = "AppraisalCoefficient" + uacCurUser[j].CoefficientId;
+                    string calculationMethodKey = "CalculationMethod" + uacCurUser[j].CoefficientId;
 
-                    double appraisalTypeCountValue = uacFilter[j].Count;
-                    double appraisalCoefficientValue = uacFilter[j].AppraisalCoefficient;
-                    int calculationMethodKeyValue = (int)uacFilter[j].CalculationMethod;
+                    double appraisalTypeCountValue = uacCurUser[j].Count;
+                    double appraisalCoefficientValue = uacCurUser[j].AppraisalCoefficient;
+                    int calculationMethodKeyValue = (int)uacCurUser[j].CalculationMethod;
 
-                    dtUser.Rows[i][appraisalTypeKey] = appraisalTypeCountValue;
                     dtUser.Rows[i][appraisalCoefficientKey] = appraisalCoefficientValue;
                     dtUser.Rows[i][calculationMethodKey] = calculationMethodKeyValue;
 
-                    yearBonusArray[j] = appraisalCoefficientValue * 
-                                        appraisalTypeCountValue * 
-                                        calculationMethodKeyValue;
+                    if (uacCurUser[j].AssessmentYear == Convert.ToInt32(cbxYear.Text) && 
+                        appraisalTypeCountValue != 0)
+                    {
+                        dtUser.Rows[i][appraisalTypeKey] = appraisalTypeCountValue;
+                        
+                        yearBonusArray[j] = appraisalCoefficientValue * 
+                                            appraisalTypeCountValue * 
+                                            calculationMethodKeyValue;
+                    } else {
+                        dtUser.Rows[i][appraisalTypeKey] = "";
+                    }
                 }
 
                 dtUser.Rows[i]["AssessmentYear"] = cbxYear.Text;
-                
-                double yearBonusAll = 0;
-                for (int j = 0; j < yearBonusArray.Length; j++)
-                {
-                    yearBonusAll += yearBonusArray[j];
-                }
 
+                double yearBonusAll = yearBonusArray.Sum();
                 double yearBonus = (1 + yearBonusAll) * Convert.ToDouble(dtUser.Rows[i]["AppraisalBase"]);
 
                 dtUser.Rows[i]["YearBonus"] = Math.Max(yearBonus, 0);
@@ -163,6 +164,35 @@ namespace Appraisal_System
 
             dgvUserAppraisal.AutoGenerateColumns = false;
             dgvUserAppraisal.DataSource = dtUser;
+        }
+
+        private void cbxYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateDt();
+        }
+
+        private void dgvUserAppraisal_MouseDown(object sender, MouseEventArgs e)
+        {
+            dgvUserAppraisal.ClearSelection();
+
+            tsmEdit.Visible = false;
+        }
+
+        private void dgvUserAppraisal_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dgvUserAppraisal.ClearSelection();
+
+            if (e.Button == MouseButtons.Right && e.RowIndex > -1)
+            {
+                dgvUserAppraisal.Rows[e.RowIndex].Selected = true;
+                tsmEdit.Visible = true;
+            }
+        }
+
+        private void tsmEdit_Click(object sender, EventArgs e)
+        {
+            EditAppraisalForm editAppraisalForm = new EditAppraisalForm();
+            editAppraisalForm.ShowDialog();
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbxFilter = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.chxSuspended = new System.Windows.Forms.CheckBox();
@@ -138,7 +139,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUserAppraisal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvUserAppraisal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserAppraisal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUserAppraisal.ColumnHeadersHeight = 34;
+            this.dgvUserAppraisal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUserAppraisal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.UserName,
@@ -147,16 +157,18 @@
             this.AppraisalBase,
             this.IsSuspended});
             this.dgvUserAppraisal.ContextMenuStrip = this.cmsUserManager;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserAppraisal.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserAppraisal.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUserAppraisal.Location = new System.Drawing.Point(12, 161);
+            this.dgvUserAppraisal.MultiSelect = false;
             this.dgvUserAppraisal.Name = "dgvUserAppraisal";
+            this.dgvUserAppraisal.ReadOnly = true;
             this.dgvUserAppraisal.RowHeadersWidth = 62;
             this.dgvUserAppraisal.RowTemplate.Height = 28;
             this.dgvUserAppraisal.Size = new System.Drawing.Size(1373, 572);
@@ -172,7 +184,7 @@
             this.Id.MinimumWidth = 8;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            this.Id.Width = 62;
+            this.Id.Width = 67;
             // 
             // UserName
             // 
@@ -182,7 +194,7 @@
             this.UserName.MinimumWidth = 8;
             this.UserName.Name = "UserName";
             this.UserName.ReadOnly = true;
-            this.UserName.Width = 125;
+            this.UserName.Width = 146;
             // 
             // Sex
             // 
@@ -192,7 +204,7 @@
             this.Sex.MinimumWidth = 8;
             this.Sex.Name = "Sex";
             this.Sex.ReadOnly = true;
-            this.Sex.Width = 99;
+            this.Sex.Width = 113;
             // 
             // BaseType
             // 
@@ -202,7 +214,7 @@
             this.BaseType.MinimumWidth = 8;
             this.BaseType.Name = "BaseType";
             this.BaseType.ReadOnly = true;
-            this.BaseType.Width = 97;
+            this.BaseType.Width = 110;
             // 
             // AppraisalBase
             // 
@@ -212,7 +224,7 @@
             this.AppraisalBase.MinimumWidth = 8;
             this.AppraisalBase.Name = "AppraisalBase";
             this.AppraisalBase.ReadOnly = true;
-            this.AppraisalBase.Width = 152;
+            this.AppraisalBase.Width = 180;
             // 
             // IsSuspended
             // 
@@ -224,7 +236,7 @@
             this.IsSuspended.ReadOnly = true;
             this.IsSuspended.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.IsSuspended.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.IsSuspended.Width = 127;
+            this.IsSuspended.Width = 149;
             // 
             // cmsUserManager
             // 

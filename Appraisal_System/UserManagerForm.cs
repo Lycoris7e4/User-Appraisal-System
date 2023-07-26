@@ -93,19 +93,6 @@ namespace Appraisal_System
             }
         }
 
-        private void clearDGVSelectedItems()
-        {
-            foreach (DataGridViewCell cell in dgvUserAppraisal.SelectedCells)
-            {
-                cell.Selected = false;
-            }
-
-            foreach (DataGridViewRow row in dgvUserAppraisal.SelectedRows)
-            {
-                row.Selected = false;
-            }
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             BindDgv();
@@ -113,7 +100,7 @@ namespace Appraisal_System
 
         private void dgvUserAppraisal_MouseDown(object sender, MouseEventArgs e)
         {
-            clearDGVSelectedItems();
+            dgvUserAppraisal.ClearSelection();
 
             if (e.Button == MouseButtons.Right)
             {
@@ -126,7 +113,7 @@ namespace Appraisal_System
 
         private void dgvUserAppraisal_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            clearDGVSelectedItems();
+            dgvUserAppraisal.ClearSelection();
 
             if (e.Button == MouseButtons.Right && e.RowIndex > -1)
             {
