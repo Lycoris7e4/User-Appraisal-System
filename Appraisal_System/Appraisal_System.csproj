@@ -136,7 +136,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Appraisal_System.Models\Appraisal_System.Model.csproj">
+    <ProjectReference Include="..\Appraisal_System.Model\Appraisal_System.Model.csproj">
       <Project>{e75794ff-bad3-4d6e-a743-bf4abd5eb318}</Project>
       <Name>Appraisal_System.Model</Name>
     </ProjectReference>
