@@ -14,6 +14,7 @@ namespace Appraisal_System
     public partial class UserAppraisalForm : Form
     {
         private DataTable dtUser;
+        Action update;
 
         public UserAppraisalForm()
         {
@@ -22,6 +23,8 @@ namespace Appraisal_System
 
         private void UserAppraisalForm_Load(object sender, EventArgs e)
         {
+            update = UpdateDt;
+
             SetCol();
 
             InitDt();
@@ -191,8 +194,20 @@ namespace Appraisal_System
 
         private void tsmEdit_Click(object sender, EventArgs e)
         {
-            EditAppraisalForm editAppraisalForm = new EditAppraisalForm();
+            int userId = (int)dgvUserAppraisal.SelectedRows[0].Cells["Id"].Value;
+            string year = cbxYear.Text;
+
+            EditAppraisalForm editAppraisalForm = new EditAppraisalForm(userId, year, update);
             editAppraisalForm.ShowDialog();
+        }
+
+        private void UserAppraisalForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                InitDt();
+                UpdateDt();
+            }
         }
     }
 }

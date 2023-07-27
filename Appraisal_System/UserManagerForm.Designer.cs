@@ -287,6 +287,7 @@
             this.Text = "UserManager";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UserManagerForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.UserManagerForm_VisibleChanged);
             this.gbxFilter.ResumeLayout(false);
             this.gbxFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppraisal)).EndInit();

@@ -139,5 +139,13 @@ namespace Appraisal_System
             EditUserForm editUserForm = new EditUserForm(delBindDgv, userId);
             editUserForm.ShowDialog();
         }
+
+        private void UserManagerForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                BindDgv();
+            }
+        }
     }
 }

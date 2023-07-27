@@ -143,12 +143,12 @@
             this.cmsAppraisal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmEdit});
             this.cmsAppraisal.Name = "cmsAppraisal";
-            this.cmsAppraisal.Size = new System.Drawing.Size(241, 67);
+            this.cmsAppraisal.Size = new System.Drawing.Size(115, 34);
             // 
             // tsmEdit
             // 
             this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(240, 30);
+            this.tsmEdit.Size = new System.Drawing.Size(114, 30);
             this.tsmEdit.Text = "Edit";
             this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
             // 
@@ -165,6 +165,7 @@
             this.Name = "UserAppraisalForm";
             this.Text = "UserAppraisalForm";
             this.Load += new System.EventHandler(this.UserAppraisalForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.UserAppraisalForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppraisal)).EndInit();
             this.cmsAppraisal.ResumeLayout(false);
             this.ResumeLayout(false);
